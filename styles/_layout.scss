@@ -1,0 +1,28 @@
+@use "./base" as *;
+
+body {
+  // background-color: $neutral-900;
+  color: white;
+  margin-inline: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.text {
+  position: absolute;
+  bottom: 0;
+}
+
+main {
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+  gap: 60px;
+}
