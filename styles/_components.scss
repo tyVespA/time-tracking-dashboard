@@ -1,74 +1,59 @@
 @use "./base" as *;
 
-.card, .card-user-container, .card-user {
-  padding: 25px 30px;
-  border-radius: 20px;
-  background-color: $neutral-800;
-}
-
 .card-user-container {
-  background-color: $primary;
-  position: relative;
-  margin-bottom: 65px;
-  grid-row: 1 / 3;
+  border-radius: $border-radius;
+  overflow: hidden;
+  background-color: $neutral-800;
 
-  .user-info {
-    position: relative;
-    z-index: 1;
+  @include for-tablets-up {
+    grid-row: 1 / 3;
   }
 
-  .card-user {
+  .card-user-owner {
+    border-radius: $border-radius;
+    padding: 25px 30px;
+    background-color: $primary;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 8rem;
+      border: 0.3rem solid white;
+      border-radius: 50%;
+      
+    }
+  }
+
+  .card-user-options {
+    padding: 25px 30px;
     background-color: $neutral-800;
-    position: absolute;
-    left: 0; right: 0; bottom: -65px;
-    z-index: -1;
-    
-    padding-top: 55px;
-
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
-.card-container {
-  // min-height: 150px;
-  position: relative;
+.card {
+  border-radius: $border-radius;
+  background-color: $primary-work;
+  overflow: hidden;
+  width: 100%;
 
-  &::before {
-    content: "";
-    position: absolute;
-    height: 60px;
-    left: 0; right: 0; top: -40px;
-    border-radius: 20px 20px 0 0;
+  .card-bg {
+    display: grid;
+    place-items: start end;
 
-    background-color: $primary-work;
-    background-image: url("../images/icon-work.svg");
-    background-repeat: no-repeat;
-    background-position: 90% 50%;
-  }
-
-  .card {
-    position: relative;
-    z-index: 1;
-
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    .card-title {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .card-content {
-      display: flex;
-      justify-content: space-between;
+    img {
+      transform: translate(-2rem, -1rem);
+      position: relative;
     }
   }
+  
+  .card-content {
+    background-color: $neutral-800;
+    padding: 25px 30px;
+    border-radius: $border-radius;
+  }
 }
 
-
-.card-container-play::before {
-  background-color: $primary-play;
-  background-image: url("../images/icon-play.svg");
-}
